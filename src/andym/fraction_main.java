@@ -6,14 +6,14 @@ public class fraction_main {
 
 	public static void main(String[] args) {
 		int len = 0;
-		fraction f = new fraction();
+
 		@SuppressWarnings("resource")
 		Scanner sck = new Scanner(System.in);
 		for (int i = 0; i < 1; i++) {
 			System.out.print("Please enter array length K > ");
 			if (sck.hasNextInt()) {
-				f.k = sck.nextInt();
-				len = f.k;
+				len = sck.nextInt();
+
 			}
 		}
 
@@ -22,45 +22,27 @@ public class fraction_main {
 		int[] masnum = new int[len];
 		int[] masdenom = new int[len];
 		for (int ii = 0; ii < masnum.length; ii++) {
-			System.out.print("Please enter numerator > ");
+			int s = ii + 1;
+			System.out.print("Please enter numerator " + s + " >");
 			if (scm.hasNextInt()) {
 				masnum[ii] = scm.nextInt();
+
 			}
-			System.out.print("Please enter denominator > ");
+			System.out.print("Please enter denominator " + s + " >");
 			if (scm.hasNextInt()) {
 				masdenom[ii] = scm.nextInt();
+
 			}
+
+			fraction a = new fraction(masnum[ii], masdenom[ii]);
+
+			print(a);
 		}
-		System.out.println("");
-		System.out.println("------------------");
-		print(masnum, masdenom);
-		calsulateFraction(masnum, masdenom);
-	}
-
-	public static void print(int[] masnum, int[] masdenom) {
-		for (int i = 0; i < masnum.length | i < masdenom.length; i++)
-
-			System.out.print("numerator[" + i + "]=" + masnum[i] + "; ");
-		System.out.println("");
-		System.out.println("------------------");
-		for (int ii = 0; ii < masdenom.length; ii++)
-			System.out.print("denominator[" + ii + "]=" + masdenom[ii] + "; ");
-		System.out.println("");
-		System.out.println("------------------");
 
 	}
 
-	public static void calsulateFraction(int[] masnum, int[] masdenom) {
-		fraction f = new fraction();
-		System.out.println("The fraction array is: ");
-		for (int concat = 0; concat < masnum.length; concat++) {
-			f.fracArray = masnum[concat] + "/" + masdenom[concat];
-			/*
-			 * System.out.print("fraction[" + concat + "]=" + masnum[concat] +
-			 * "/" + masdenom[concat] + "; ");
-			 */
-			System.out.print("fraction[" + concat + "]=" + f.fracArray + ";");
-		}
+	public static void print(fraction a) {
+		System.out.println(a);
 	}
 
 }
